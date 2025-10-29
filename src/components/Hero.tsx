@@ -39,11 +39,11 @@ const Hero = () => {
           {skills.map((skill, index) => (
             <span
               key={skill}
-              className={`px-4 py-2 rounded-full glass border border-accent/30 text-sm font-medium transition-all duration-500 ${
+              className={`px-4 py-2 rounded-full liquid-glass border border-accent/20 text-sm font-medium transition-all duration-700 ${
                 visibleSkills.includes(index)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
-              } hover:border-accent hover:shadow-glow hover:scale-105`}
+              } hover:border-accent/60 hover:shadow-glow hover:scale-105`}
             >
               {skill}
             </span>

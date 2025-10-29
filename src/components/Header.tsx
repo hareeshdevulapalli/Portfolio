@@ -14,8 +14,8 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass shadow-lg" : ""
+      className={`sticky top-0 z-50 transition-all duration-500 ${
+        isScrolled ? "liquid-glass shadow-lg" : ""
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
