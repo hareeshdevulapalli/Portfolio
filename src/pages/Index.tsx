@@ -4,6 +4,7 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import FrontendHighlights from "@/components/FrontendHighlights";
 import UISystemsSection from "@/components/UISystemsSection";
 import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 import AIAssistant from "@/components/AIAssistant";
 import Footer from "@/components/Footer";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -23,6 +24,7 @@ const Index = () => {
             <FrontendHighlights />
             <UISystemsSection />
             <Experience />
+            <Education />
             <Footer />
           </main>
 
