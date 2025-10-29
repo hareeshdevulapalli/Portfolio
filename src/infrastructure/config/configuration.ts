@@ -53,19 +53,19 @@ export class ConfigurationService {
     
     return {
       app: {
-        name: import.meta.env.VITE_APP_NAME || 'Hareesh Devulapalli - Software Engineer',
-        version: import.meta.env.VITE_APP_VERSION || '1.0.0',
+        name: import.meta.env.VITE_APP_NAME!,
+        version: import.meta.env.VITE_APP_VERSION!,
         environment
       },
       personal: {
-        name: import.meta.env.VITE_PERSONAL_NAME || 'Hareesh Devulapalli',
-        title: import.meta.env.VITE_PERSONAL_TITLE || 'Software Engineer II',
-        bio: import.meta.env.VITE_PERSONAL_BIO || 'Experienced Software Engineer with expertise in React, Angular, Node.js, and full-stack development. Passionate about building scalable, accessible applications and real-time collaboration tools.',
-        location: import.meta.env.VITE_PERSONAL_LOCATION || 'San Jose, CA'
+        name: import.meta.env.VITE_PERSONAL_NAME!,
+        title: import.meta.env.VITE_PERSONAL_TITLE!,
+        bio: import.meta.env.VITE_PERSONAL_BIO!,
+        location: import.meta.env.VITE_PERSONAL_LOCATION!
       },
       api: {
-        baseUrl: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
-        timeout: parseInt(import.meta.env.VITE_API_TIMEOUT || '5000')
+        baseUrl: import.meta.env.VITE_API_BASE_URL!,
+        timeout: parseInt(import.meta.env.VITE_API_TIMEOUT!)
       },
       analytics: {
         enabled: import.meta.env.VITE_ANALYTICS_ENABLED === 'true',
@@ -77,11 +77,11 @@ export class ConfigurationService {
         darkMode: import.meta.env.VITE_FEATURE_DARK_MODE !== 'false'
       },
       contact: {
-        email: import.meta.env.VITE_CONTACT_EMAIL || 'hareeshdevulapalli777@gmail.com',
-        linkedin: import.meta.env.VITE_CONTACT_LINKEDIN || 'https://linkedin.com/in/hareesh-devulapalli',
-        github: import.meta.env.VITE_CONTACT_GITHUB || 'https://github.com/hareeshd',
-        phone: import.meta.env.VITE_CONTACT_PHONE || '219-804-2554',
-        location: import.meta.env.VITE_PERSONAL_LOCATION || 'San Jose, CA'
+        email: import.meta.env.VITE_CONTACT_EMAIL!,
+        linkedin: import.meta.env.VITE_CONTACT_LINKEDIN!,
+        github: import.meta.env.VITE_CONTACT_GITHUB!,
+        phone: import.meta.env.VITE_CONTACT_PHONE!,
+        location: import.meta.env.VITE_PERSONAL_LOCATION!
       }
     };
   }

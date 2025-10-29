@@ -21,10 +21,10 @@ const Index = () => {
         <div className="grid lg:grid-cols-[1fr_400px] gap-8 lg:gap-12">
           <main className="min-w-0">
             <Hero />
+            <Experience />
             <FeaturedProjects />
             <FrontendHighlights />
             <UISystemsSection />
-            <Experience />
             <Education />
             <Footer />
           </main>

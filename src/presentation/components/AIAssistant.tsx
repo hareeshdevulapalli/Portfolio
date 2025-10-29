@@ -13,7 +13,7 @@ export const AIAssistant = ({ isMobile = false }: AIAssistantProps) => {
     {
       id: '1',
       role: "assistant",
-      content: "Hi! I'm Hareesh's AI assistant. Ask me anything about his work, experience, or technical expertise.",
+      content: "Hi! I'm Hareesh's AI assistant. Ask me anything about his 6+ years of experience as a Senior Full-Stack Software Engineer, his technical expertise, or his projects.",
       timestamp: new Date()
     }
   ]);
