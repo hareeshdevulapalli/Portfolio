@@ -62,10 +62,10 @@ const AIAssistant = ({ isMobile = false }: { isMobile?: boolean }) => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-accent to-secondary shadow-glow flex items-center justify-center animate-pulse-slow hover:scale-110 transition-transform"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full liquid-glass shadow-glow flex items-center justify-center animate-pulse-slow hover:scale-110 transition-all duration-500 border border-accent/40"
         aria-label="Open AI Assistant"
       >
-        <MessageCircle className="w-6 h-6 text-background" />
+        <MessageCircle className="w-6 h-6 text-accent" />
       </button>
     );
   }
@@ -98,7 +98,7 @@ const AIAssistant = ({ isMobile = false }: { isMobile?: boolean }) => {
               className={`max-w-[85%] p-3 rounded-2xl ${
                 message.role === "user"
                   ? "bg-accent text-background"
-                  : "glass"
+                  : "liquid-glass liquid-shimmer"
               }`}
             >
               <p className="text-sm leading-relaxed">{message.content}</p>
@@ -115,7 +115,7 @@ const AIAssistant = ({ isMobile = false }: { isMobile?: boolean }) => {
               <button
                 key={prompt}
                 onClick={() => handlePromptClick(prompt)}
-                className="w-full text-left p-3 rounded-xl glass hover:border-accent/50 transition-all text-sm"
+                className="w-full text-left p-3 rounded-xl liquid-glass hover:border-accent/50 transition-all duration-500 text-sm liquid-shimmer"
               >
                 {prompt}
               </button>
@@ -148,7 +148,7 @@ const AIAssistant = ({ isMobile = false }: { isMobile?: boolean }) => {
 
   if (isMobile) {
     return (
-      <div className="fixed inset-x-0 bottom-0 z-50 h-[70vh] glass border-t border-border/50 animate-fade-up">
+      <div className="fixed inset-x-0 bottom-0 z-50 h-[70vh] liquid-glass border-t border-accent/30 animate-fade-up">
         {content}
       </div>
     );
@@ -156,7 +156,7 @@ const AIAssistant = ({ isMobile = false }: { isMobile?: boolean }) => {
 
   return (
     <aside className="hidden lg:block lg:sticky lg:top-24 h-[calc(100vh-8rem)]">
-      <div className="h-full glass rounded-2xl overflow-hidden">
+      <div className="h-full liquid-glass rounded-2xl overflow-hidden border border-accent/20">
         {content}
       </div>
     </aside>

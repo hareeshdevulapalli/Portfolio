@@ -43,7 +43,7 @@ const FrontendHighlights = () => {
             return (
               <div
                 key={highlight.title}
-                className="p-6 rounded-2xl glass hover:border-accent/50 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-glow group"
+                className="p-6 rounded-2xl liquid-glass hover:border-accent/50 transition-all duration-500 hover:translate-y-[-4px] hover:shadow-glow group liquid-shimmer"
                 style={{
                   animationDelay: `${index * 100}ms`,
                 }}

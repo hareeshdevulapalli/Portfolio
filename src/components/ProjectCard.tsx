@@ -12,7 +12,7 @@ const ProjectCard = ({ title, description, tech, highlights, onClick }: ProjectC
   return (
     <div
       onClick={onClick}
-      className="group cursor-pointer p-6 rounded-2xl gradient-border bg-card hover:translate-y-[-4px] transition-all duration-300 hover:shadow-elevated"
+      className="group cursor-pointer p-6 rounded-2xl gradient-border bg-card hover:translate-y-[-4px] transition-all duration-500 hover:shadow-elevated liquid-shimmer"
     >
       <div className="space-y-4">
         <div className="flex items-start justify-between">

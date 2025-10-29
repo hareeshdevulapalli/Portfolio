@@ -80,15 +80,51 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glass {
-    background: hsl(222 13% 10% / 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid hsl(222 13% 18% / 0.5);
+    background: linear-gradient(135deg, hsl(222 13% 10% / 0.4), hsl(222 13% 15% / 0.3));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid hsl(222 13% 18% / 0.3);
+    box-shadow: 
+      0 8px 32px 0 hsl(222 15% 0% / 0.37),
+      inset 0 1px 0 0 hsl(210 40% 98% / 0.05);
+  }
+
+  .liquid-glass {
+    background: linear-gradient(135deg, 
+      hsl(222 13% 12% / 0.5) 0%,
+      hsl(222 13% 10% / 0.3) 50%,
+      hsl(222 13% 15% / 0.4) 100%);
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border: 1px solid hsl(195 100% 60% / 0.2);
+    box-shadow: 
+      0 12px 40px -8px hsl(195 100% 60% / 0.2),
+      0 4px 16px -2px hsl(260 80% 65% / 0.15),
+      inset 0 2px 4px 0 hsl(210 40% 98% / 0.05),
+      inset 0 -2px 4px 0 hsl(195 100% 60% / 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      hsl(195 100% 60% / 0.08) 0%,
+      transparent 50%
+    );
+    animation: liquid-flow 8s ease-in-out infinite;
   }
 
   .gradient-border {
     position: relative;
-    background: hsl(222 13% 10%);
+    background: linear-gradient(135deg, hsl(222 13% 10% / 0.8), hsl(222 13% 12% / 0.6));
+    backdrop-filter: blur(16px);
   }
 
   .gradient-border::before {
@@ -102,7 +138,7 @@ All colors MUST be HSL.
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
   }
 
   .gradient-border:hover::before {
@@ -126,6 +162,27 @@ All colors MUST be HSL.
 
   .animate-pulse-slow {
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .liquid-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(195 100% 60% / 0.15),
+      transparent
+    );
+    animation: shimmer 3s infinite;
   }
 }
 
@@ -155,5 +212,26 @@ All colors MUST be HSL.
   }
   50% {
     opacity: 0.7;
+  }
+}
+
+@keyframes liquid-flow {
+  0%, 100% {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  33% {
+    transform: translate(30%, -30%) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20%, 20%) rotate(240deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
   }
 }

@@ -58,7 +58,7 @@ const Experience = () => {
                 {/* Timeline dot */}
                 <div className="absolute left-[-5px] top-2 w-3 h-3 rounded-full bg-accent shadow-glow hidden sm:block group-hover:scale-150 transition-transform" />
 
-                <div className="glass p-6 rounded-2xl hover:border-accent/50 transition-all duration-300 hover:translate-x-2">
+                <div className="liquid-glass p-6 rounded-2xl hover:border-accent/50 transition-all duration-500 hover:translate-x-2 liquid-shimmer">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                     <div>
                       <h3 className="text-xl font-semibold">{exp.role}</h3>
