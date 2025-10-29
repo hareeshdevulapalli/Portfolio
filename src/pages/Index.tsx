@@ -1,14 +1,15 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import FeaturedProjects from "@/components/FeaturedProjects";
 import FrontendHighlights from "@/components/FrontendHighlights";
 import UISystemsSection from "@/components/UISystemsSection";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import AIAssistant from "@/components/AIAssistant";
 import Footer from "@/components/Footer";
+import { FeaturedProjects } from "@/presentation/components/FeaturedProjects";
+import { Experience } from "@/presentation/components/Experience";
+import { Education } from "@/presentation/components/Education";
+import { AIAssistant } from "@/presentation/components/AIAssistant";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+// Single Responsibility: This component orchestrates the main page layout
 const Index = () => {
   const isMobile = useIsMobile();
 
