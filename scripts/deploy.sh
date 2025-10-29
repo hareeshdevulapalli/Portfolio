@@ -24,26 +24,24 @@ echo "⚙️ Setting up git configuration..."
 git config --global user.name "GitHub Actions Bot"
 git config --global user.email "actions@github.com"
 
-# Clone or update the gh-pages branch
-echo "📥 Cloning gh-pages branch..."
-if git clone --branch gh-pages --single-branch "https://github.com/$REPO_NAME.git" ../gh-pages-repo 2>/dev/null; then
-    echo "✅ Successfully cloned existing gh-pages branch"
-    cd ../gh-pages-repo
+# Clone the repository
+echo "📥 Cloning repository..."
+git clone "https://github.com/$REPO_NAME.git" ../gh-pages-repo
+cd ../gh-pages-repo
+
+# Check if gh-pages branch exists
+if git show-ref --verify --quiet refs/heads/gh-pages; then
+    echo "✅ Switching to existing gh-pages branch"
     git checkout gh-pages
 else
-    echo "📝 Creating new gh-pages branch..."
-    git clone "https://github.com/$REPO_NAME.git" ../gh-pages-repo
-    cd ../gh-pages-repo
+    echo "📝 Creating new gh-pages branch"
     git checkout --orphan gh-pages
-    git rm -rf . || true
-    # Ensure we have a proper git repository
-    git add .
-    git commit -m "Initial commit for gh-pages branch" || true
+    git rm -rf . 2>/dev/null || true
 fi
 
 # Clean the directory
 echo "🧹 Cleaning deployment directory..."
-rm -rf * .[^.]* || true
+rm -rf * .[^.]* 2>/dev/null || true
 
 # Copy built files
 echo "📦 Copying built files..."
