@@ -1,5 +1,7 @@
 // Utility functions
-export const cn = (...classes: (string | undefined | null | false)[]): string => {
+export const cn = (
+  ...classes: (string | undefined | null | false)[]
+): string => {
   return classes.filter(Boolean).join(' ');
 };
 
@@ -32,7 +34,7 @@ export const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   }).format(date);
 };
 

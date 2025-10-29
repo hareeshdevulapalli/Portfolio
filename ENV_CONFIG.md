@@ -5,11 +5,13 @@ This portfolio uses environment variables for personal information configuration
 ## Setup
 
 1. **Copy the example file:**
+
    ```bash
    cp env.example .env
    ```
 
 2. **Edit the `.env` file** with your personal information:
+
    ```env
    # Personal Information
    VITE_PERSONAL_NAME="Your Name"
@@ -27,18 +29,21 @@ This portfolio uses environment variables for personal information configuration
 ## Environment Variables
 
 ### Personal Information
+
 - `VITE_PERSONAL_NAME` - Your full name
 - `VITE_PERSONAL_TITLE` - Your professional title
 - `VITE_PERSONAL_BIO` - Your bio/description
 - `VITE_PERSONAL_LOCATION` - Your location
 
 ### Contact Information
+
 - `VITE_CONTACT_EMAIL` - Your email address
 - `VITE_CONTACT_LINKEDIN` - Your LinkedIn profile URL
 - `VITE_CONTACT_GITHUB` - Your GitHub profile URL
 - `VITE_CONTACT_PHONE` - Your phone number
 
 ### Application Configuration
+
 - `VITE_APP_NAME` - Application name
 - `VITE_APP_VERSION` - Application version
 - `VITE_FEATURE_AI_ASSISTANT` - Enable/disable AI assistant (true/false)
@@ -46,10 +51,12 @@ This portfolio uses environment variables for personal information configuration
 - `VITE_FEATURE_DARK_MODE` - Enable/disable dark mode (true/false)
 
 ### API Configuration
+
 - `VITE_API_BASE_URL` - API base URL
 - `VITE_API_TIMEOUT` - API timeout in milliseconds
 
 ### Analytics
+
 - `VITE_ANALYTICS_ENABLED` - Enable analytics (true/false)
 - `VITE_ANALYTICS_TRACKING_ID` - Analytics tracking ID
 

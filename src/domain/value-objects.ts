@@ -62,7 +62,9 @@ export class Url {
 export class SkillProficiency {
   private readonly value: 'beginner' | 'intermediate' | 'advanced' | 'expert';
 
-  constructor(proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert') {
+  constructor(
+    proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert'
+  ) {
     this.value = proficiency;
   }
 
@@ -75,7 +77,7 @@ export class SkillProficiency {
       beginner: 1,
       intermediate: 2,
       advanced: 3,
-      expert: 4
+      expert: 4,
     };
     return mapping[this.value];
   }
@@ -120,14 +122,14 @@ export class DateRange {
   }
 
   toString(): string {
-    const startStr = this.startDate.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short' 
+    const startStr = this.startDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
     });
-    const endStr = this.endDate 
-      ? this.endDate.toLocaleDateString('en-US', { 
-          year: 'numeric', 
-          month: 'short' 
+    const endStr = this.endDate
+      ? this.endDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
         })
       : 'Present';
     return `${startStr} - ${endStr}`;

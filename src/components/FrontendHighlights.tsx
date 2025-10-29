@@ -1,26 +1,30 @@
-import { Code2, Zap, Palette, Shield } from "lucide-react";
+import { Code2, Zap, Palette, Shield } from 'lucide-react';
 
 const highlights = [
   {
     icon: Code2,
-    title: "Component Libraries",
-    description: "Built internal component libraries and design systems that are WCAG AA accessible"
+    title: 'Component Libraries',
+    description:
+      'Built internal component libraries and design systems that are WCAG AA accessible',
   },
   {
     icon: Zap,
-    title: "Performance Optimization",
-    description: "Optimized rendering and state management to improve performance and cut load times"
+    title: 'Performance Optimization',
+    description:
+      'Optimized rendering and state management to improve performance and cut load times',
   },
   {
     icon: Palette,
-    title: "Design Systems",
-    description: "Created scalable design systems with theming, dark mode, and consistent patterns"
+    title: 'Design Systems',
+    description:
+      'Created scalable design systems with theming, dark mode, and consistent patterns',
   },
   {
     icon: Shield,
-    title: "Real-time Features",
-    description: "Implemented real-time UI features with WebSockets and Kafka streams"
-  }
+    title: 'Real-time Features',
+    description:
+      'Implemented real-time UI features with WebSockets and Kafka streams',
+  },
 ];
 
 const FrontendHighlights = () => {
@@ -28,9 +32,9 @@ const FrontendHighlights = () => {
     <section id="highlights" className="py-16 sm:py-20">
       <div className="space-y-8">
         <div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 group inline-block">
+          <h2 className="group mb-3 inline-block text-3xl font-bold sm:text-4xl">
             Front-End Engineering Highlights
-            <span className="block h-1 w-0 group-hover:w-full bg-gradient-to-r from-accent to-secondary transition-all duration-500"></span>
+            <span className="block h-1 w-0 bg-gradient-to-r from-accent to-secondary transition-all duration-500 group-hover:w-full"></span>
           </h2>
           <p className="text-muted-foreground">
             Core competencies in modern frontend development
@@ -43,16 +47,18 @@ const FrontendHighlights = () => {
             return (
               <div
                 key={highlight.title}
-                className="p-6 rounded-2xl glass hover:border-accent/50 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-glow group"
+                className="glass hover:shadow-glow group rounded-2xl p-6 transition-all duration-300 hover:translate-y-[-4px] hover:border-accent/50"
                 style={{
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                  <Icon className="w-6 h-6 text-accent" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 transition-colors group-hover:bg-accent/20">
+                  <Icon className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{highlight.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="mb-2 text-lg font-semibold">
+                  {highlight.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {highlight.description}
                 </p>
               </div>

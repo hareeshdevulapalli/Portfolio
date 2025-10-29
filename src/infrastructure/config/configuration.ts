@@ -49,40 +49,42 @@ export class ConfigurationService {
   }
 
   private loadConfiguration(): AppConfig {
-    const environment = (import.meta.env.MODE as 'development' | 'staging' | 'production') || 'development';
-    
+    const environment =
+      (import.meta.env.MODE as 'development' | 'staging' | 'production') ||
+      'development';
+
     return {
       app: {
         name: import.meta.env.VITE_APP_NAME!,
         version: import.meta.env.VITE_APP_VERSION!,
-        environment
+        environment,
       },
       personal: {
         name: import.meta.env.VITE_PERSONAL_NAME!,
         title: import.meta.env.VITE_PERSONAL_TITLE!,
         bio: import.meta.env.VITE_PERSONAL_BIO!,
-        location: import.meta.env.VITE_PERSONAL_LOCATION!
+        location: import.meta.env.VITE_PERSONAL_LOCATION!,
       },
       api: {
         baseUrl: import.meta.env.VITE_API_BASE_URL!,
-        timeout: parseInt(import.meta.env.VITE_API_TIMEOUT!)
+        timeout: parseInt(import.meta.env.VITE_API_TIMEOUT!),
       },
       analytics: {
         enabled: import.meta.env.VITE_ANALYTICS_ENABLED === 'true',
-        trackingId: import.meta.env.VITE_ANALYTICS_TRACKING_ID
+        trackingId: import.meta.env.VITE_ANALYTICS_TRACKING_ID,
       },
       features: {
         aiAssistant: import.meta.env.VITE_FEATURE_AI_ASSISTANT !== 'false',
         analytics: import.meta.env.VITE_FEATURE_ANALYTICS !== 'false',
-        darkMode: import.meta.env.VITE_FEATURE_DARK_MODE !== 'false'
+        darkMode: import.meta.env.VITE_FEATURE_DARK_MODE !== 'false',
       },
       contact: {
         email: import.meta.env.VITE_CONTACT_EMAIL!,
         linkedin: import.meta.env.VITE_CONTACT_LINKEDIN!,
         github: import.meta.env.VITE_CONTACT_GITHUB!,
         phone: import.meta.env.VITE_CONTACT_PHONE!,
-        location: import.meta.env.VITE_PERSONAL_LOCATION!
-      }
+        location: import.meta.env.VITE_PERSONAL_LOCATION!,
+      },
     };
   }
 

@@ -3,7 +3,10 @@ export abstract class DomainError extends Error {
   abstract readonly code: string;
   abstract readonly statusCode: number;
 
-  constructor(message: string, public readonly context?: Record<string, any>) {
+  constructor(
+    message: string,
+    public readonly context?: Record<string, any>
+  ) {
     super(message);
     this.name = this.constructor.name;
   }
@@ -68,7 +71,10 @@ export abstract class ApplicationError extends Error {
   abstract readonly code: string;
   abstract readonly statusCode: number;
 
-  constructor(message: string, public readonly context?: Record<string, any>) {
+  constructor(
+    message: string,
+    public readonly context?: Record<string, any>
+  ) {
     super(message);
     this.name = this.constructor.name;
   }
@@ -97,7 +103,10 @@ export abstract class InfrastructureError extends Error {
   abstract readonly code: string;
   abstract readonly statusCode: number;
 
-  constructor(message: string, public readonly context?: Record<string, any>) {
+  constructor(
+    message: string,
+    public readonly context?: Record<string, any>
+  ) {
     super(message);
     this.name = this.constructor.name;
   }

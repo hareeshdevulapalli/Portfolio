@@ -3,31 +3,34 @@ export enum ProjectCategory {
   FRONTEND = 'frontend',
   FULLSTACK = 'fullstack',
   MOBILE = 'mobile',
-  TOOLS = 'tools'
+  TOOLS = 'tools',
 }
 
 export enum SkillCategory {
   FRONTEND = 'frontend',
   BACKEND = 'backend',
   TOOLS = 'tools',
-  DESIGN = 'design'
+  DESIGN = 'design',
 }
 
 export enum ProficiencyLevel {
   BEGINNER = 'beginner',
   INTERMEDIATE = 'intermediate',
   ADVANCED = 'advanced',
-  EXPERT = 'expert'
+  EXPERT = 'expert',
 }
 
 export enum MessageRole {
   USER = 'user',
-  ASSISTANT = 'assistant'
+  ASSISTANT = 'assistant',
 }
 
 // Domain errors
 export class DomainError extends Error {
-  constructor(message: string, public readonly code: string) {
+  constructor(
+    message: string,
+    public readonly code: string
+  ) {
     super(message);
     this.name = 'DomainError';
   }

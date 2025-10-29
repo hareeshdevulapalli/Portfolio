@@ -1,5 +1,11 @@
 // Domain interfaces for static content repositories
-import { Skill, Highlight, Badge, ContactLink, PersonalInfo } from './static-content';
+import {
+  Skill,
+  Highlight,
+  Badge,
+  ContactLink,
+  PersonalInfo,
+} from './static-content';
 
 export interface SkillRepository {
   findAll(): Promise<Skill[]>;

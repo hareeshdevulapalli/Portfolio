@@ -5,6 +5,7 @@
 ### **Step 1: Prepare Your Repository**
 
 1. **Commit and push your code:**
+
    ```bash
    git add .
    git commit -m "Prepare for deployment"
@@ -91,36 +92,36 @@ name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Build
-      run: npm run build
-      
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
 ```
 
 ### **Step 6: DNS Propagation and Testing**
@@ -135,6 +136,7 @@ jobs:
 ### **Step 7: SSL Certificate**
 
 GitHub Pages automatically provides SSL certificates for custom domains. After DNS propagation:
+
 1. Go to Settings → Pages
 2. Check **Enforce HTTPS**
 3. Wait for certificate to be issued
@@ -174,6 +176,7 @@ GitHub Pages automatically provides SSL certificates for custom domains. After D
 ## 🌐 **Your Portfolio URLs**
 
 After deployment, your portfolio will be available at:
+
 - **GitHub Pages**: `https://yourusername.github.io/repository-name`
 - **Custom Domain**: `https://yourdomain.com` (or subdomain)
 

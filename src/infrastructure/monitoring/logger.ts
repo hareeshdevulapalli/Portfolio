@@ -3,7 +3,7 @@ export enum LogLevel {
   DEBUG = 0,
   INFO = 1,
   WARN = 2,
-  ERROR = 3
+  ERROR = 3,
 }
 
 export interface LogEntry {
@@ -71,7 +71,7 @@ export class EnhancedAnalyticsService implements MonitoringService {
 
   trackEvent(event: string, properties?: Record<string, any>): void {
     this.logger.info(`Analytics Event: ${event}`, properties);
-    
+
     // In a real application, you would send this to your analytics service
     // Example: Google Analytics, Mixpanel, etc.
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -81,18 +81,18 @@ export class EnhancedAnalyticsService implements MonitoringService {
 
   trackPageView(page: string): void {
     this.logger.info(`Page View: ${page}`);
-    
+
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('config', 'GA_MEASUREMENT_ID', {
         page_title: page,
-        page_location: window.location.href
+        page_location: window.location.href,
       });
     }
   }
 
   trackError(error: Error, context?: Record<string, any>): void {
     this.logger.error(`Error tracked: ${error.message}`, error, context);
-    
+
     // In a real application, you would send this to your error tracking service
     // Example: Sentry, Bugsnag, etc.
     if (typeof window !== 'undefined' && (window as any).Sentry) {
@@ -102,12 +102,12 @@ export class EnhancedAnalyticsService implements MonitoringService {
 
   trackPerformance(metric: string, value: number): void {
     this.logger.info(`Performance Metric: ${metric} = ${value}ms`);
-    
+
     // In a real application, you would send this to your performance monitoring service
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'timing_complete', {
         name: metric,
-        value: Math.round(value)
+        value: Math.round(value),
       });
     }
   }
@@ -126,7 +126,7 @@ export class PerformanceMonitor {
     if (!startTime) {
       throw new Error(`Timer ${name} was not started`);
     }
-    
+
     const duration = performance.now() - startTime;
     this.timers.delete(name);
     return duration;

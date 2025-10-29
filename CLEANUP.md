@@ -3,6 +3,7 @@
 ## Files Removed
 
 ### Unused Component Files (6 files)
+
 - `src/components/AIAssistant.tsx` → Moved to `src/presentation/components/AIAssistant.tsx`
 - `src/components/FeaturedProjects.tsx` → Moved to `src/presentation/components/FeaturedProjects.tsx`
 - `src/components/ProjectCard.tsx` → Moved to `src/presentation/components/ProjectCard.tsx`
@@ -11,6 +12,7 @@
 - `src/components/Education.tsx` → Moved to `src/presentation/components/Education.tsx`
 
 ### Unused UI Components (35 files)
+
 Removed unused shadcn/ui components that were not being used in the application:
 
 - `accordion.tsx`
@@ -59,6 +61,7 @@ Removed unused shadcn/ui components that were not being used in the application:
 - `toggle.tsx`
 
 ### Remaining UI Components (5 files)
+
 Kept only the UI components that are actually being used:
 
 - `sonner.tsx` - Used in App.tsx for toast notifications

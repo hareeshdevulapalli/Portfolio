@@ -8,7 +8,8 @@ export class InMemoryEducationRepository implements EducationRepository {
       degree: 'Master of Science',
       field: 'Computer Science',
       duration: 'December 2022',
-      description: 'Advanced studies in computer science with focus on software engineering and system design'
+      description:
+        'Advanced studies in computer science with focus on software engineering and system design',
     },
     {
       id: '2',
@@ -16,8 +17,9 @@ export class InMemoryEducationRepository implements EducationRepository {
       degree: 'Bachelor of Technology',
       field: 'Computer Science',
       duration: 'May 2019',
-      description: 'Comprehensive computer science education with emphasis on programming, algorithms, and software development'
-    }
+      description:
+        'Comprehensive computer science education with emphasis on programming, algorithms, and software development',
+    },
   ];
 
   async findAll(): Promise<Education[]> {

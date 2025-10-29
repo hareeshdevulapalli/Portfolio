@@ -1,41 +1,41 @@
-import { Mail, Github, Linkedin } from "lucide-react";
-import { config } from "@/infrastructure/config/configuration";
+import { Mail, Github, Linkedin } from 'lucide-react';
+import { config } from '@/infrastructure/config/configuration';
 
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-border/50">
+    <footer className="border-t border-border/50 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center">
-          <p className="text-muted-foreground max-w-2xl">
-            Building scalable, accessible applications with React, Angular, Node.js, NestJS, 
-            and modern web architecture.
+          <p className="max-w-2xl text-muted-foreground">
+            Building scalable, accessible applications with React, Angular,
+            Node.js, NestJS, and modern web architecture.
           </p>
 
           <div className="flex items-center gap-4">
             <a
               href={`mailto:${config.getEmail()}`}
-              className="p-3 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-110 group"
+              className="group rounded-full bg-muted p-3 transition-all hover:scale-110 hover:bg-accent/10"
               aria-label="Email"
             >
-              <Mail className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+              <Mail className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-accent" />
             </a>
             <a
               href={config.getLinkedIn()}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-110 group"
+              className="group rounded-full bg-muted p-3 transition-all hover:scale-110 hover:bg-accent/10"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+              <Linkedin className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-accent" />
             </a>
             <a
               href={config.getGitHub()}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-110 group"
+              className="group rounded-full bg-muted p-3 transition-all hover:scale-110 hover:bg-accent/10"
               aria-label="GitHub"
             >
-              <Github className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+              <Github className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-accent" />
             </a>
           </div>
 

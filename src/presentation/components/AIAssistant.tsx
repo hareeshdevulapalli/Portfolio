@@ -1,5 +1,5 @@
-import { MessageCircle, Send, Sparkles, X } from "lucide-react";
-import { useState } from "react";
+import { MessageCircle, Send, Sparkles, X } from 'lucide-react';
+import { useState } from 'react';
 import { Message } from '@/domain/entities';
 import { useMessageService } from '@/presentation/hooks/use-data';
 
@@ -12,23 +12,24 @@ export const AIAssistant = ({ isMobile = false }: AIAssistantProps) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      role: "assistant",
-      content: "Hi! I'm Hareesh's AI assistant. Ask me anything about his 6+ years of experience as a Senior Full-Stack Software Engineer, his technical expertise, or his projects.",
-      timestamp: new Date()
-    }
+      role: 'assistant',
+      content:
+        "Hi! I'm Hareesh's AI assistant. Ask me anything about his 6+ years of experience as a Senior Full-Stack Software Engineer, his technical expertise, or his projects.",
+      timestamp: new Date(),
+    },
   ]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(!isMobile);
   const { starterPrompts, sendMessage } = useMessageService();
 
   const handleSend = async () => {
     if (!input.trim()) return;
 
-    const userMessage: Message = { 
+    const userMessage: Message = {
       id: Date.now().toString(),
-      role: "user", 
+      role: 'user',
       content: input,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
     setMessages(prev => [...prev, userMessage]);
 
@@ -36,22 +37,22 @@ export const AIAssistant = ({ isMobile = false }: AIAssistantProps) => {
       const response = await sendMessage(input);
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        role: "assistant",
+        role: 'assistant',
         content: response,
-        timestamp: new Date()
+        timestamp: new Date(),
       };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: "Sorry, I encountered an error. Please try again.",
-        timestamp: new Date()
+        role: 'assistant',
+        content: 'Sorry, I encountered an error. Please try again.',
+        timestamp: new Date(),
       };
       setMessages(prev => [...prev, errorMessage]);
     }
 
-    setInput("");
+    setInput('');
   };
 
   const handlePromptClick = (prompt: string) => {
@@ -63,26 +64,28 @@ export const AIAssistant = ({ isMobile = false }: AIAssistantProps) => {
   }
 
   const content = (
-    <div className="flex flex-col h-full">
+    <div className="flex h-full flex-col">
       <AssistantHeader isMobile={isMobile} onClose={() => setIsOpen(false)} />
-      <MessageList messages={messages} starterPrompts={starterPrompts} onPromptClick={handlePromptClick} />
+      <MessageList
+        messages={messages}
+        starterPrompts={starterPrompts}
+        onPromptClick={handlePromptClick}
+      />
       <MessageInput input={input} setInput={setInput} onSend={handleSend} />
     </div>
   );
 
   if (isMobile) {
     return (
-      <div className="fixed inset-x-0 bottom-0 z-50 h-[70vh] glass border-t border-border/50 animate-fade-up">
+      <div className="glass animate-fade-up fixed inset-x-0 bottom-0 z-50 h-[70vh] border-t border-border/50">
         {content}
       </div>
     );
   }
 
   return (
-    <aside className="hidden lg:block lg:sticky lg:top-24 h-[calc(100vh-8rem)]">
-      <div className="h-full glass rounded-2xl overflow-hidden">
-        {content}
-      </div>
+    <aside className="hidden h-[calc(100vh-8rem)] lg:sticky lg:top-24 lg:block">
+      <div className="glass h-full overflow-hidden rounded-2xl">{content}</div>
     </aside>
   );
 };
@@ -91,44 +94,50 @@ export const AIAssistant = ({ isMobile = false }: AIAssistantProps) => {
 const MobileTriggerButton = ({ onClick }: { onClick: () => void }) => (
   <button
     onClick={onClick}
-    className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-accent to-secondary shadow-glow flex items-center justify-center animate-pulse-slow hover:scale-110 transition-transform"
+    className="shadow-glow animate-pulse-slow fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-accent to-secondary transition-transform hover:scale-110"
     aria-label="Open AI Assistant"
   >
-    <MessageCircle className="w-6 h-6 text-background" />
+    <MessageCircle className="h-6 w-6 text-background" />
   </button>
 );
 
 // Single Responsibility: Assistant header
-const AssistantHeader = ({ isMobile, onClose }: { isMobile: boolean; onClose: () => void }) => (
-  <div className="p-4 border-b border-border/50 flex items-center justify-between">
+const AssistantHeader = ({
+  isMobile,
+  onClose,
+}: {
+  isMobile: boolean;
+  onClose: () => void;
+}) => (
+  <div className="flex items-center justify-between border-b border-border/50 p-4">
     <div className="flex items-center gap-2">
-      <Sparkles className="w-5 h-5 text-accent animate-pulse-slow" />
+      <Sparkles className="animate-pulse-slow h-5 w-5 text-accent" />
       <h3 className="font-semibold">Ask my AI</h3>
     </div>
     {isMobile && (
       <button
         onClick={onClose}
-        className="p-2 rounded-lg hover:bg-muted transition-colors"
+        className="rounded-lg p-2 transition-colors hover:bg-muted"
         aria-label="Close assistant"
       >
-        <X className="w-5 h-5" />
+        <X className="h-5 w-5" />
       </button>
     )}
   </div>
 );
 
 // Single Responsibility: Message list
-const MessageList = ({ 
-  messages, 
-  starterPrompts, 
-  onPromptClick 
-}: { 
-  messages: Message[]; 
+const MessageList = ({
+  messages,
+  starterPrompts,
+  onPromptClick,
+}: {
+  messages: Message[];
   starterPrompts: string[];
   onPromptClick: (prompt: string) => void;
 }) => (
-  <div className="flex-1 overflow-y-auto p-4 space-y-4">
-    {messages.map((message) => (
+  <div className="flex-1 space-y-4 overflow-y-auto p-4">
+    {messages.map(message => (
       <MessageBubble key={message.id} message={message} />
     ))}
 
@@ -140,12 +149,12 @@ const MessageList = ({
 
 // Single Responsibility: Individual message bubble
 const MessageBubble = ({ message }: { message: Message }) => (
-  <div className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+  <div
+    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+  >
     <div
-      className={`max-w-[85%] p-3 rounded-2xl ${
-        message.role === "user"
-          ? "bg-accent text-background"
-          : "glass"
+      className={`max-w-[85%] rounded-2xl p-3 ${
+        message.role === 'user' ? 'bg-accent text-background' : 'glass'
       }`}
     >
       <p className="text-sm leading-relaxed">{message.content}</p>
@@ -154,22 +163,22 @@ const MessageBubble = ({ message }: { message: Message }) => (
 );
 
 // Single Responsibility: Starter prompts
-const StarterPrompts = ({ 
-  prompts, 
-  onPromptClick 
-}: { 
+const StarterPrompts = ({
+  prompts,
+  onPromptClick,
+}: {
   prompts: string[];
   onPromptClick: (prompt: string) => void;
 }) => (
   <div className="space-y-2 pt-4">
-    <p className="text-xs text-muted-foreground text-center mb-3">
+    <p className="mb-3 text-center text-xs text-muted-foreground">
       Try asking:
     </p>
-    {prompts.map((prompt) => (
+    {prompts.map(prompt => (
       <button
         key={prompt}
         onClick={() => onPromptClick(prompt)}
-        className="w-full text-left p-3 rounded-xl glass hover:border-accent/50 transition-all text-sm"
+        className="glass w-full rounded-xl p-3 text-left text-sm transition-all hover:border-accent/50"
       >
         {prompt}
       </button>
@@ -178,31 +187,31 @@ const StarterPrompts = ({
 );
 
 // Single Responsibility: Message input
-const MessageInput = ({ 
-  input, 
-  setInput, 
-  onSend 
-}: { 
+const MessageInput = ({
+  input,
+  setInput,
+  onSend,
+}: {
   input: string;
   setInput: (value: string) => void;
   onSend: () => void;
 }) => (
-  <div className="p-4 border-t border-border/50">
+  <div className="border-t border-border/50 p-4">
     <div className="flex gap-2">
       <input
         type="text"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyPress={(e) => e.key === "Enter" && onSend()}
-            placeholder="Ask about Hareesh's work..."
-        className="flex-1 px-4 py-2 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors"
+        onChange={e => setInput(e.target.value)}
+        onKeyPress={e => e.key === 'Enter' && onSend()}
+        placeholder="Ask about Hareesh's work..."
+        className="flex-1 rounded-xl border border-border bg-muted px-4 py-2 transition-colors focus:border-accent focus:outline-none"
       />
       <button
         onClick={onSend}
-        className="p-2 rounded-xl bg-accent text-background hover:bg-accent/90 transition-colors"
+        className="rounded-xl bg-accent p-2 text-background transition-colors hover:bg-accent/90"
         aria-label="Send message"
       >
-        <Send className="w-5 h-5" />
+        <Send className="h-5 w-5" />
       </button>
     </div>
   </div>

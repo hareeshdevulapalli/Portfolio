@@ -1,13 +1,34 @@
 // Dependency Injection Container
-import { ProjectRepository, ExperienceRepository, EducationRepository, MessageService, AnalyticsService } from '@/domain/interfaces';
-import { SkillRepository, HighlightRepository, BadgeRepository, ContactRepository, PersonalInfoRepository } from '@/domain/interfaces/static-content';
+import {
+  ProjectRepository,
+  ExperienceRepository,
+  EducationRepository,
+  MessageService,
+  AnalyticsService,
+} from '@/domain/interfaces';
+import {
+  SkillRepository,
+  HighlightRepository,
+  BadgeRepository,
+  ContactRepository,
+  PersonalInfoRepository,
+} from '@/domain/interfaces/static-content';
 import { Logger, MonitoringService } from '@/infrastructure/monitoring/logger';
-import { ConsoleLogger, EnhancedAnalyticsService } from '@/infrastructure/monitoring/logger';
+import {
+  ConsoleLogger,
+  EnhancedAnalyticsService,
+} from '@/infrastructure/monitoring/logger';
 import { config } from '@/infrastructure/config/configuration';
 import { InMemoryProjectRepository } from '@/infrastructure/repositories/project-repository';
 import { InMemoryExperienceRepository } from '@/infrastructure/repositories/experience-repository';
 import { InMemoryEducationRepository } from '@/infrastructure/repositories/education-repository';
-import { InMemorySkillRepository, InMemoryHighlightRepository, InMemoryBadgeRepository, InMemoryContactRepository, InMemoryPersonalInfoRepository } from '@/infrastructure/repositories/static-content-repository';
+import {
+  InMemorySkillRepository,
+  InMemoryHighlightRepository,
+  InMemoryBadgeRepository,
+  InMemoryContactRepository,
+  InMemoryPersonalInfoRepository,
+} from '@/infrastructure/repositories/static-content-repository';
 import { InMemoryMessageService } from '@/infrastructure/services/message-service';
 
 export class DIContainer {
@@ -28,19 +49,25 @@ export class DIContainer {
   private registerServices(): void {
     // Register core repositories
     this.services.set('ProjectRepository', new InMemoryProjectRepository());
-    this.services.set('ExperienceRepository', new InMemoryExperienceRepository());
+    this.services.set(
+      'ExperienceRepository',
+      new InMemoryExperienceRepository()
+    );
     this.services.set('EducationRepository', new InMemoryEducationRepository());
-    
+
     // Register static content repositories
     this.services.set('SkillRepository', new InMemorySkillRepository());
     this.services.set('HighlightRepository', new InMemoryHighlightRepository());
     this.services.set('BadgeRepository', new InMemoryBadgeRepository());
     this.services.set('ContactRepository', new InMemoryContactRepository());
-    this.services.set('PersonalInfoRepository', new InMemoryPersonalInfoRepository());
-    
+    this.services.set(
+      'PersonalInfoRepository',
+      new InMemoryPersonalInfoRepository()
+    );
+
     // Register services
     this.services.set('MessageService', new InMemoryMessageService());
-    
+
     // Register monitoring services
     const logger = new ConsoleLogger(config.isDevelopment() ? 0 : 1); // DEBUG in dev, INFO in prod
     this.services.set('Logger', logger);

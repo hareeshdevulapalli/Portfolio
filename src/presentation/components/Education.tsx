@@ -10,13 +10,16 @@ export const Education = () => {
     return (
       <section id="education" className="py-16 sm:py-20">
         <div className="space-y-8">
-          <SectionHeader 
+          <SectionHeader
             title="Education"
             description="Academic foundation in computer science and software engineering"
           />
           <div className="space-y-4">
             {Array.from({ length: 2 }).map((_, index) => (
-              <div key={index} className="h-24 bg-muted animate-pulse rounded-2xl" />
+              <div
+                key={index}
+                className="h-24 animate-pulse rounded-2xl bg-muted"
+              />
             ))}
           </div>
         </div>
@@ -28,7 +31,7 @@ export const Education = () => {
     return (
       <section id="education" className="py-16 sm:py-20">
         <div className="space-y-8">
-          <SectionHeader 
+          <SectionHeader
             title="Education"
             description="Academic foundation in computer science and software engineering"
           />
@@ -43,13 +46,13 @@ export const Education = () => {
   return (
     <section id="education" className="py-16 sm:py-20">
       <div className="space-y-8">
-        <SectionHeader 
+        <SectionHeader
           title="Education"
           description="Academic foundation in computer science and software engineering"
         />
 
         <div className="space-y-4">
-          {educations.map((education) => (
+          {educations.map(education => (
             <EducationCard key={education.id} education={education} />
           ))}
         </div>
@@ -60,18 +63,22 @@ export const Education = () => {
 
 // Single Responsibility: Display individual education card
 const EducationCard = ({ education }: { education: Education }) => (
-  <div className="p-6 rounded-2xl gradient-border">
+  <div className="gradient-border rounded-2xl p-6">
     <div className="space-y-2">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-xl font-semibold">{education.degree}</h3>
-          <p className="text-accent font-medium">{education.institution}</p>
+          <p className="font-medium text-accent">{education.institution}</p>
           <p className="text-sm text-muted-foreground">{education.field}</p>
         </div>
-        <span className="text-sm text-muted-foreground">{education.duration}</span>
+        <span className="text-sm text-muted-foreground">
+          {education.duration}
+        </span>
       </div>
 
-      <p className="text-muted-foreground leading-relaxed">{education.description}</p>
+      <p className="leading-relaxed text-muted-foreground">
+        {education.description}
+      </p>
     </div>
   </div>
 );

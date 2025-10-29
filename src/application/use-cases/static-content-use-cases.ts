@@ -1,6 +1,18 @@
 // Use cases for static content
-import { Skill, Highlight, Badge, ContactLink, PersonalInfo } from '@/domain/entities/static-content';
-import { SkillRepository, HighlightRepository, BadgeRepository, ContactRepository, PersonalInfoRepository } from '@/domain/interfaces/static-content';
+import {
+  Skill,
+  Highlight,
+  Badge,
+  ContactLink,
+  PersonalInfo,
+} from '@/domain/entities/static-content';
+import {
+  SkillRepository,
+  HighlightRepository,
+  BadgeRepository,
+  ContactRepository,
+  PersonalInfoRepository,
+} from '@/domain/interfaces/static-content';
 
 export class GetSkillsUseCase {
   constructor(private skillRepository: SkillRepository) {}

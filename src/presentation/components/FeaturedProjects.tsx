@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { Project } from '@/domain/entities';
 import { useProjects } from '@/presentation/hooks/use-data';
 import { ProjectCard } from './ProjectCard';
@@ -14,13 +14,16 @@ export const FeaturedProjects = () => {
     return (
       <section id="projects" className="py-16 sm:py-20">
         <div className="space-y-8">
-          <SectionHeader 
+          <SectionHeader
             title="Featured Projects"
             description="Production systems showcasing frontend architecture, performance, and accessibility"
           />
           <div className="grid gap-6 md:grid-cols-2">
             {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="h-64 bg-muted animate-pulse rounded-2xl" />
+              <div
+                key={index}
+                className="h-64 animate-pulse rounded-2xl bg-muted"
+              />
             ))}
           </div>
         </div>
@@ -32,7 +35,7 @@ export const FeaturedProjects = () => {
     return (
       <section id="projects" className="py-16 sm:py-20">
         <div className="space-y-8">
-          <SectionHeader 
+          <SectionHeader
             title="Featured Projects"
             description="Production systems showcasing frontend architecture, performance, and accessibility"
           />
@@ -47,13 +50,13 @@ export const FeaturedProjects = () => {
   return (
     <section id="projects" className="py-16 sm:py-20">
       <div className="space-y-8">
-        <SectionHeader 
+        <SectionHeader
           title="Featured Projects"
           description="Production systems showcasing frontend architecture, performance, and accessibility"
         />
 
         <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+          {projects.map(project => (
             <ProjectCard
               key={project.id}
               project={project}

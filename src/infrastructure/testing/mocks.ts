@@ -1,8 +1,25 @@
 // Testing utilities and mocks
 import { Project, Experience, Education } from '@/domain/entities';
-import { Skill, Highlight, Badge, ContactLink, PersonalInfo } from '@/domain/entities/static-content';
-import { ProjectRepository, ExperienceRepository, EducationRepository, MessageService } from '@/domain/interfaces';
-import { SkillRepository, HighlightRepository, BadgeRepository, ContactRepository, PersonalInfoRepository } from '@/domain/interfaces/static-content';
+import {
+  Skill,
+  Highlight,
+  Badge,
+  ContactLink,
+  PersonalInfo,
+} from '@/domain/entities/static-content';
+import {
+  ProjectRepository,
+  ExperienceRepository,
+  EducationRepository,
+  MessageService,
+} from '@/domain/interfaces';
+import {
+  SkillRepository,
+  HighlightRepository,
+  BadgeRepository,
+  ContactRepository,
+  PersonalInfoRepository,
+} from '@/domain/interfaces/static-content';
 
 // Mock implementations for testing
 export class MockProjectRepository implements ProjectRepository {
@@ -86,22 +103,25 @@ export class MockMessageService implements MessageService {
   private responses: Record<string, string> = {};
   private starterPrompts: string[] = [];
 
-  constructor(responses: Record<string, string> = {}, starterPrompts: string[] = []) {
+  constructor(
+    responses: Record<string, string> = {},
+    starterPrompts: string[] = []
+  ) {
     this.responses = { ...responses };
     this.starterPrompts = [...starterPrompts];
   }
 
   async sendMessage(message: string): Promise<string> {
     const lowerInput = message.toLowerCase();
-    let response = this.responses["default"] || "Default response";
-    
+    let response = this.responses['default'] || 'Default response';
+
     for (const [key, value] of Object.entries(this.responses)) {
       if (lowerInput.includes(key)) {
         response = value;
         break;
       }
     }
-    
+
     return response;
   }
 
@@ -242,7 +262,7 @@ export class TestDataFactory {
       details: ['Test detail'],
       createdAt: new Date('2023-01-01'),
       updatedAt: new Date('2023-01-01'),
-      ...overrides
+      ...overrides,
     };
   }
 
@@ -255,7 +275,7 @@ export class TestDataFactory {
       description: 'Test experience description',
       achievements: ['Test achievement'],
       tech: ['React', 'TypeScript'],
-      ...overrides
+      ...overrides,
     };
   }
 
@@ -267,7 +287,7 @@ export class TestDataFactory {
       field: 'Computer Science',
       duration: '2020 - 2024',
       description: 'Test education description',
-      ...overrides
+      ...overrides,
     };
   }
 
@@ -277,7 +297,7 @@ export class TestDataFactory {
       name: 'Test Skill',
       category: 'frontend',
       proficiency: 'advanced',
-      ...overrides
+      ...overrides,
     };
   }
 
@@ -287,7 +307,7 @@ export class TestDataFactory {
       icon: 'TestIcon',
       title: 'Test Highlight',
       description: 'Test highlight description',
-      ...overrides
+      ...overrides,
     };
   }
 
@@ -296,7 +316,7 @@ export class TestDataFactory {
       id: '1',
       text: 'Test Badge',
       category: 'test',
-      ...overrides
+      ...overrides,
     };
   }
 
@@ -307,18 +327,20 @@ export class TestDataFactory {
       url: 'mailto:test@example.com',
       label: 'Test Contact',
       icon: 'Mail',
-      ...overrides
+      ...overrides,
     };
   }
 
-  static createPersonalInfo(overrides: Partial<PersonalInfo> = {}): PersonalInfo {
+  static createPersonalInfo(
+    overrides: Partial<PersonalInfo> = {}
+  ): PersonalInfo {
     return {
       name: 'Test User',
       title: 'Test Title',
       bio: 'Test bio',
       location: 'Test Location',
       contact: [this.createContactLink()],
-      ...overrides
+      ...overrides,
     };
   }
 }
