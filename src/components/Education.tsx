@@ -41,7 +41,7 @@ const Education = () => {
           {education.map((edu) => (
             <div
               key={edu.degree}
-              className="liquid-glass p-6 rounded-2xl hover:border-accent/50 transition-all duration-500 hover:translate-y-[-4px] hover:shadow-glow group liquid-shimmer"
+              className="glass p-6 rounded-2xl hover:border-accent/50 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-glow group"
             >
               <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
                 <GraduationCap className="w-6 h-6 text-accent" />

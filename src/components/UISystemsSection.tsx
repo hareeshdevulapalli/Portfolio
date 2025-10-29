@@ -35,7 +35,7 @@ const UISystemsSection = () => {
             {[...badges, ...badges].map((badge, index) => (
               <div
                 key={`${badge}-${index}`}
-                className="px-6 py-3 rounded-full liquid-glass border border-accent/30 text-sm font-medium whitespace-nowrap hover:border-accent hover:shadow-glow transition-all duration-500 liquid-shimmer"
+                className="px-6 py-3 rounded-full glass border border-accent/30 text-sm font-medium whitespace-nowrap hover:border-accent hover:shadow-glow transition-all"
               >
                 {badge}
               </div>
