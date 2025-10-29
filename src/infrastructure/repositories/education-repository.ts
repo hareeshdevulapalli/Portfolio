@@ -4,19 +4,19 @@ export class InMemoryEducationRepository implements EducationRepository {
   private educations: Education[] = [
     {
       id: '1',
-      institution: 'University of Technology',
-      degree: 'Bachelor of Science',
+      institution: 'Purdue University',
+      degree: 'Master of Science',
       field: 'Computer Science',
-      duration: '2014 - 2018',
-      description: 'Focused on software engineering, algorithms, and web technologies'
+      duration: 'December 2022',
+      description: 'Advanced studies in computer science with focus on software engineering and system design'
     },
     {
       id: '2',
-      institution: 'Code Academy',
-      degree: 'Certificate',
-      field: 'Full Stack Web Development',
-      duration: '2017 - 2018',
-      description: 'Intensive program covering modern web development technologies'
+      institution: 'Jawaharlal Nehru Technological University (JNTUH)',
+      degree: 'Bachelor of Technology',
+      field: 'Computer Science',
+      duration: 'May 2019',
+      description: 'Comprehensive computer science education with emphasis on programming, algorithms, and software development'
     }
   ];
 

@@ -13,7 +13,7 @@ export const AIAssistant = ({ isMobile = false }: AIAssistantProps) => {
     {
       id: '1',
       role: "assistant",
-      content: "Hi! I'm Alex's AI assistant. Ask me anything about his work, experience, or technical expertise.",
+      content: "Hi! I'm Hareesh's AI assistant. Ask me anything about his work, experience, or technical expertise.",
       timestamp: new Date()
     }
   ]);
@@ -194,7 +194,7 @@ const MessageInput = ({
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyPress={(e) => e.key === "Enter" && onSend()}
-        placeholder="Ask about Alex's work..."
+            placeholder="Ask about Hareesh's work..."
         className="flex-1 px-4 py-2 rounded-xl bg-muted border border-border focus:border-accent focus:outline-none transition-colors"
       />
       <button

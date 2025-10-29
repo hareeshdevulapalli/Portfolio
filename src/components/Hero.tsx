@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import { config } from "@/infrastructure/config/configuration";
 
 const skills = [
   "React",
   "Angular",
+  "Node.js",
   "TypeScript",
+  "NestJS",
+  "WebSockets",
   "GraphQL",
-  "Web Accessibility",
-  "Design Systems",
-  "Performance",
-  "Micro Frontends",
+  "Spring Boot",
 ];
 
 const Hero = () => {
@@ -27,11 +28,10 @@ const Hero = () => {
       <div className="space-y-8">
         <div className="space-y-4">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-            Frontend-focused Software Engineer
+            {config.getTitle()}
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl">
-            6+ years building accessible, high-performance UI systems in React, Angular, 
-            and modern web stacks.
+            {config.getBio()}
           </p>
         </div>
 

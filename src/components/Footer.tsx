@@ -1,4 +1,5 @@
 import { Mail, Github, Linkedin } from "lucide-react";
+import { config } from "@/infrastructure/config/configuration";
 
 const Footer = () => {
   return (
@@ -6,20 +7,20 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center">
           <p className="text-muted-foreground max-w-2xl">
-            Building fast, accessible interfaces with React, Angular, TypeScript, GraphQL, 
+            Building scalable, accessible applications with React, Angular, Node.js, NestJS, 
             and modern web architecture.
           </p>
 
           <div className="flex items-center gap-4">
             <a
-              href="mailto:alex@example.com"
+              href={`mailto:${config.getEmail()}`}
               className="p-3 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-110 group"
               aria-label="Email"
             >
               <Mail className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
             </a>
             <a
-              href="https://linkedin.com"
+              href={config.getLinkedIn()}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-110 group"
@@ -28,7 +29,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
             </a>
             <a
-              href="https://github.com"
+              href={config.getGitHub()}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-110 group"

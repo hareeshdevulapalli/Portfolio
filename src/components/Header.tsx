@@ -1,5 +1,6 @@
 import { Mail, Github, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
+import { config } from "@/infrastructure/config/configuration";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,12 +22,12 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            <span className="text-gradient">Alex Rodriguez</span>
+            <span className="text-gradient">{config.getName()}</span>
           </h1>
 
           <div className="flex items-center gap-2 sm:gap-3">
             <a
-              href="mailto:alex@example.com"
+              href={`mailto:${config.getEmail()}`}
               className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-105 group"
               aria-label="Email"
             >
@@ -36,7 +37,7 @@ const Header = () => {
               </span>
             </a>
             <a
-              href="https://linkedin.com"
+              href={config.getLinkedIn()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-105 group"
@@ -48,7 +49,7 @@ const Header = () => {
               </span>
             </a>
             <a
-              href="https://github.com"
+              href={config.getGitHub()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-muted hover:bg-accent/10 transition-all hover:scale-105 group"

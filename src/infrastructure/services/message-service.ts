@@ -2,16 +2,16 @@ import { MessageService } from '@/domain/entities';
 
 export class InMemoryMessageService implements MessageService {
   private responses: Record<string, string> = {
-    "architecture": "Alex specializes in micro-frontend architectures and scalable component systems. His most complex project involved building a distributed dashboard platform serving 10K+ daily users with real-time data synchronization.",
-    "performance": "Performance is core to Alex's approach. He's reduced load times by up to 60% through code splitting, lazy loading, and intelligent caching strategies. He uses Lighthouse scores and Core Web Vitals as key metrics.",
-    "accessibility": "Alex ensures all interfaces meet WCAG AA standards. He tests with screen readers, implements proper ARIA labels, and builds keyboard navigation into every component. Accessibility isn't optional—it's fundamental.",
-    "proud": "Alex is most proud of the design system he built that's now used across 15+ products. It reduced development time by 40% and established consistent patterns that improved both developer experience and end-user experience."
+    "architecture": "Hareesh specializes in full-stack development with expertise in React, Angular, Node.js, and NestJS. His most complex project involved building WCAG-compliant real-time collaboration tools across three products with WebSocket integration and Spring Boot + Kotlin backend.",
+    "performance": "Performance is core to Hareesh's approach. He's reduced client-side complexity by 40%, improved load times by 70%, and optimized Google Maps API calculations from 7 to 3 seconds using Web Workers. He focuses on critical path rendering and efficient state management.",
+    "accessibility": "Hareesh ensures all interfaces meet WCAG AA standards. He developed and launched WCAG-compliant real-time collaboration tools across three products, implementing proper ARIA labels, keyboard navigation, and screen reader support. Accessibility isn't optional—it's fundamental.",
+    "proud": "Hareesh is most proud of the real-time collaboration tools he built at Group 1001. The system enables teams to communicate asynchronously within applications, reducing reliance on external channels and improving team productivity through WebSocket-powered real-time features."
   };
 
   private starterPrompts = [
-    "What's your most complex front-end architecture?",
-    "Tell me about performance tuning you've done.",
-    "How do you approach accessibility?",
+    "What's your most complex full-stack architecture?",
+    "Tell me about performance optimization you've done.",
+    "How do you approach accessibility in your applications?",
     "Which project are you most proud of?"
   ];
 
