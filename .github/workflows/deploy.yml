@@ -10,6 +10,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 jobs:
   ci:
@@ -56,6 +57,9 @@ jobs:
     needs: ci
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -67,15 +71,14 @@ jobs:
           name: build-files
           path: dist/
 
-      - name: Prepare deployment files
-        run: |
-          # Create CNAME file for custom domain
-          echo "hareeshd.dev" > dist/CNAME
-          echo "✅ CNAME file created for custom domain"
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: hareeshd.dev
+        id: deployment
+        uses: actions/deploy-pages@v4
