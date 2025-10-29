@@ -1,12 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import FeaturedProjects from "@/components/FeaturedProjects";
+import FrontendHighlights from "@/components/FrontendHighlights";
+import UISystemsSection from "@/components/UISystemsSection";
+import Experience from "@/components/Experience";
+import AIAssistant from "@/components/AIAssistant";
+import Footer from "@/components/Footer";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen">
+      <Header />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[1fr_400px] gap-8 lg:gap-12">
+          <main className="min-w-0">
+            <Hero />
+            <FeaturedProjects />
+            <FrontendHighlights />
+            <UISystemsSection />
+            <Experience />
+            <Footer />
+          </main>
+
+          {!isMobile && (
+            <div className="hidden lg:block">
+              <AIAssistant />
+            </div>
+          )}
+        </div>
       </div>
+
+      {isMobile && <AIAssistant isMobile />}
     </div>
   );
 };
