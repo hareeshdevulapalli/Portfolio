@@ -7,9 +7,9 @@ set -e  # Exit on any error
 
 echo "🚀 Starting custom GitHub Pages deployment..."
 
-# Configuration
-REPO_NAME="${{ github.repository }}"
-COMMIT_SHA="${{ github.sha }}"
+# Configuration - these will be passed as environment variables
+REPO_NAME="${GITHUB_REPOSITORY:-hareeshdevulapalli/Portfolio}"
+COMMIT_SHA="${GITHUB_SHA:-$(git rev-parse HEAD)}"
 CUSTOM_DOMAIN="hareeshd.dev"
 BUILD_DIR="../Portfolio/dist"
 
@@ -36,6 +36,9 @@ else
     cd ../gh-pages-repo
     git checkout --orphan gh-pages
     git rm -rf . || true
+    # Ensure we have a proper git repository
+    git add .
+    git commit -m "Initial commit for gh-pages branch" || true
 fi
 
 # Clean the directory
@@ -70,8 +73,7 @@ else
 
     Automated deployment from GitHub Actions
     Commit: $COMMIT_SHA
-    Branch: ${{ github.ref_name }}
-    Workflow: ${{ github.workflow }}"
+    Repository: $REPO_NAME"
     echo "✅ Changes committed"
 fi
 
