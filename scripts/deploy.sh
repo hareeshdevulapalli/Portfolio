@@ -37,6 +37,11 @@ else
     echo "📝 Creating new gh-pages branch"
     git checkout --orphan gh-pages
     git rm -rf . 2>/dev/null || true
+    
+    # Ensure we have a proper git repository by creating an initial commit
+    echo "# GitHub Pages" > README.md
+    git add README.md
+    git commit -m "Initial gh-pages commit" || true
 fi
 
 # Clean the directory

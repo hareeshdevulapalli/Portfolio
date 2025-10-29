@@ -67,9 +67,15 @@ jobs:
           name: build-files
           path: dist/
 
+      - name: Prepare deployment files
+        run: |
+          # Create CNAME file for custom domain
+          echo "hareeshd.dev" > dist/CNAME
+          echo "✅ CNAME file created for custom domain"
+
       - name: Deploy to GitHub Pages
-        run: ./scripts/deploy.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_SHA: ${{ github.sha }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: hareeshd.dev
