@@ -2,13 +2,13 @@ import React from 'react';
 
 const UnderConstructionBanner = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+      <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-xl">
         {/* Construction Icon */}
         <div className="mb-6">
-          <div className="w-20 h-20 mx-auto bg-yellow-100 rounded-full flex items-center justify-center">
+          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-yellow-100">
             <svg
-              className="w-10 h-10 text-yellow-600"
+              className="h-10 w-10 text-yellow-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -24,28 +24,30 @@ const UnderConstructionBanner = () => {
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
+        <h1 className="mb-4 text-3xl font-bold text-gray-900">
           Under Construction
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg text-gray-600 mb-6">
+        <p className="mb-6 text-lg text-gray-600">
           We're working hard to bring you something amazing!
         </p>
 
         {/* Description */}
-        <p className="text-gray-500 mb-8">
-          Hareesh Devulapalli's portfolio is currently being updated with new features and improvements. 
-          Please check back soon!
+        <p className="mb-8 text-gray-500">
+          Hareesh Devulapalli's portfolio is currently being updated with new
+          features and improvements. Please check back soon!
         </p>
 
         {/* Contact Info */}
         <div className="space-y-3">
-          <p className="text-sm text-gray-500">In the meantime, you can reach me at:</p>
+          <p className="text-sm text-gray-500">
+            In the meantime, you can reach me at:
+          </p>
           <div className="flex justify-center space-x-4">
             <a
               href="mailto:hareeshdevulapalli777@gmail.com"
-              className="text-blue-600 hover:text-blue-800 transition-colors"
+              className="text-blue-600 transition-colors hover:text-blue-800"
             >
               Email
             </a>
@@ -53,7 +55,7 @@ const UnderConstructionBanner = () => {
               href="https://linkedin.com/in/hareesh-devulapalli"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 transition-colors"
+              className="text-blue-600 transition-colors hover:text-blue-800"
             >
               LinkedIn
             </a>
@@ -61,7 +63,7 @@ const UnderConstructionBanner = () => {
               href="https://github.com/hareeshdevulapalli"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 transition-colors"
+              className="text-blue-600 transition-colors hover:text-blue-800"
             >
               GitHub
             </a>
@@ -70,20 +72,20 @@ const UnderConstructionBanner = () => {
 
         {/* Progress Bar */}
         <div className="mt-8">
-          <div className="flex justify-between text-sm text-gray-500 mb-2">
+          <div className="mb-2 flex justify-between text-sm text-gray-500">
             <span>Progress</span>
             <span>85%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="h-2 w-full rounded-full bg-gray-200">
             <div
-              className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full transition-all duration-1000 ease-out"
+              className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 transition-all duration-1000 ease-out"
               style={{ width: '85%' }}
             ></div>
           </div>
         </div>
 
         {/* Estimated Completion */}
-        <p className="text-xs text-gray-400 mt-4">
+        <p className="mt-4 text-xs text-gray-400">
           Estimated completion: Coming Soon
         </p>
       </div>
