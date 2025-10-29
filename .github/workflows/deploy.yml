@@ -25,25 +25,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
         run: |
-          npm ci --legacy-peer-deps
-          npm install @rollup/rollup-linux-x64-gnu --save-dev --no-save
-          npm install @swc/core-linux-x64-gnu --save-dev --no-save
+          yarn install --frozen-lockfile
+          yarn add @rollup/rollup-linux-x64-gnu --dev
+          yarn add @swc/core-linux-x64-gnu --dev
 
       - name: Run TypeScript check
-        run: npm run type-check
+        run: yarn type-check
 
       - name: Run ESLint
-        run: npm run lint
+        run: yarn lint
 
       - name: Run Prettier check
-        run: npm run format:check
+        run: yarn format:check
 
       - name: Build application
-        run: npm run build
+        run: yarn build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
